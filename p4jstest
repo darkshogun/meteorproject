@@ -1,0 +1,37 @@
+if (Meteor.isClient) {
+  //code to run on client at startup
+  //otherwise, show the homepage
+  Router.route('/', function () {
+    if (Meteor.userId() == null) {
+      this.render('Login');
+    }
+    else {
+      this.render('Home');
+    }
+});
+
+
+
+
+  //on creating a new user
+  Accounts.onCreateUser(function(options, user) {
+  user.type = "student"
+  // We still want the default hook's 'profile' behavior.
+  if (options.profile)
+    user.profile = options.profile;
+  return user;
+});
+Accounts.config({ restrictCreationByEmailDomain: 'gatech.edu' })
+Accounts.ui.config({
+  passwordSignupFields: "EMAIL_ONLY"
+});
+}
+
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    // code to run on server at startup
+
+UserTypes = new Mongo.Collection("user_types");
+  });
+}
+
