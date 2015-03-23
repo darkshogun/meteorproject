@@ -1,0 +1,88 @@
+
+
+<template name="Login">
+
+  <p>{{> MainHeader}}</p>
+  <p>
+    Please Login to continue. 
+  </p>
+  <p>{{> loginButtons}}</p>
+</template>
+<!--This is the basic homepage template. Component visibility/choices vary by userType-->
+<template name="Home">
+  <p>{{> MainHeader}}</p>
+<p>In order to help both you, the student, and the faculty and staff at
+Georgia Tech, this system is provided as a way to help you choose a
+course schedule that will help you complete your degree on schedule,
+minimize class size, and maximize the use of resources in order to
+provide as many options as possible.<br>
+</p>
+<p>{{> loginButtons}}</p>
+  <p>{{> Options}}</p>
+</template>
+
+<!--This is the main header that is displayed on most, if not all pages-->
+<template name="MainHeader">
+<head>
+  <title>Course Schedule Recommendation Machine</title>
+</head>
+<body>
+   <img alt="" src="http://www.costaricaviews.com/wp-content/uploads/2009/06/DU_GeorgiaTech_logo-tn.jpg" class="circle">
+      <h1>Welcome!<br></h1>
+  <p>
+    Welcome to your personalized Course-Schedule Recommendation Machine
+  </p>
+</body>
+</template>
+
+<!--This is the module for a student to set or change his/her prefered schedule-->
+<template name="SetSchedule">
+  <h1>Change Preferences<br>
+</h1>
+
+<p>Alter your course and scheduling preferences<br>
+</p>
+
+<a href="/set_prefered_schedule">Set Preferences</a>
+</template>
+
+<!--This is a set of Optional modules to display on the homepage.-->
+<template name="Options">
+  <p>{{> SetSchedule}}</p>
+</template>
+<!--...-->
+<template name="DefaultLayout">
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+  <aside>
+    {{> yield "aside"}}
+  </aside>
+
+  <article>
+    {{> yield}}
+  </article>
+
+  <footer>
+    {{> yield "footer"}}
+  </footer>
+</template>
+
+<template name="WelcomeMessage">
+  <p>
+    Welcome to your personalized Course-Schedule Recommendation Machine
+  </p>
+</template>
+
+<template name="PostFooter">
+  Some post specific footer content.
+</template>
+
+<template name="PostAside">
+  Some post specific aside content.
+</template>
+
+<template name="StudentHome">
+   <p> this is the student hom page </p>
+</template>
